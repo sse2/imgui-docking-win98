@@ -1,3 +1,17 @@
+ImGui Docking + Win98 theme
+=====
+
+The `docking` branch of ImGui merged with the `external/win98` branch originally made by JakeCoxon. Made for personal use but others might also find it useful.
+Some modifications have been made from the original code (generally style stuff):
+- Checkboxes are smaller.
+- Comboboxes, treenodes, scrollbars are more accurate.
+- Fonts are packed in header files.
+- Misc. theme changes.
+
+Most changes should only occur when `WIN98` is defined, which it is by default (see imconfig.h) with a few exceptions that will be addressed **soon**:tm:.
+
+Original README.md:
+
 Dear ImGui
 =====
 
