@@ -879,7 +879,7 @@ bool ImGui::CloseButton(ImGuiID id, const ImVec2& pos)
     WinAddRect(bb.Min, bb.Max, hovered && held);
 #else
     if (hovered)
-        window->DrawList->AddCircleFilled(center, ImMax(2.0f, g.FontSize * 0.5f + 1.0f), col);
+        window->DrawList->AddRectFilled(bb.Min, bb.Max, bg_col);
 #endif
 
     RenderNavCursor(bb, id, ImGuiNavRenderCursorFlags_Compact);
