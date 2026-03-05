@@ -48,10 +48,10 @@ int main(int, char**)
     }
 
     SDL_PropertiesID props = SDL_GetWindowProperties(window);
-    HWND hwnd = (HWND)SDL_GetPointerProperty(props, SDL_PROP_WINDOW_WIN32_HWND_POINTER, nullptr);
+    // HWND hwnd = (HWND)SDL_GetPointerProperty(props, SDL_PROP_WINDOW_WIN32_HWND_POINTER, nullptr);
 
     // Initialize Direct3D
-    if (!CreateDeviceD3D(hwnd))
+    if (!CreateDeviceD3D((HWND)window))
     {
         CleanupDeviceD3D();
         return 1;
@@ -77,7 +77,7 @@ int main(int, char**)
     style.FontScaleDpi = main_scale;        // Set initial font scale. (in docking branch: using io.ConfigDpiScaleFonts=true automatically overrides this for every window depending on the current monitor)
 
     // Setup Platform/Renderer backends
-    ImGui_ImplSDL3_InitForD3D(window);
+    ImGui_ImplSDL3_InitForOther(window);
     ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
 
     // Load Fonts

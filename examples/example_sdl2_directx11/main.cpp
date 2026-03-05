@@ -57,13 +57,13 @@ int main(int, char**)
         return 1;
     }
 
-    SDL_SysWMinfo wmInfo;
-    SDL_VERSION(&wmInfo.version);
-    SDL_GetWindowWMInfo(window, &wmInfo);
-    HWND hwnd = (HWND)wmInfo.info.win.window;
+    //SDL_SysWMinfo wmInfo;
+    //SDL_VERSION(&wmInfo.version);
+    //SDL_GetWindowWMInfo(window, &wmInfo);
+    //HWND hwnd = (HWND)wmInfo.info.win.window;
 
     // Initialize Direct3D
-    if (!CreateDeviceD3D(hwnd))
+    if (!CreateDeviceD3D((HWND)window))
     {
         CleanupDeviceD3D();
         return 1;
@@ -86,7 +86,7 @@ int main(int, char**)
     style.FontScaleDpi = main_scale;        // Set initial font scale. (in docking branch: using io.ConfigDpiScaleFonts=true automatically overrides this for every window depending on the current monitor)
 
     // Setup Platform/Renderer backends
-    ImGui_ImplSDL2_InitForD3D(window);
+    ImGui_ImplSDL2_InitForOther(window);
     ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
 
     // Load Fonts
